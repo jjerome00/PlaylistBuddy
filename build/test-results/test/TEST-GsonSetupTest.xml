@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="GsonSetupTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-13T19:37:41" hostname="mabon-pc" time="12.649">
+  <properties/>
+  <testcase name="test_parse" classname="GsonSetupTest" time="12.649"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
