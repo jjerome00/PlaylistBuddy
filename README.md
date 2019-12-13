@@ -6,7 +6,7 @@ An interview demo project by Jason Jerome
 
 ### IntelliJ
 
-Setup should already been done. These steps are for reference.
+Setup is already done. These steps are for reference.
  1. Create intelliJ project: Gradle, with Java and Kotlin/JVM
  2. Create new file: main.kt
  3. Add new Configuration:

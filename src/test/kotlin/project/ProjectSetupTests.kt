@@ -1,25 +1,24 @@
-package Project
+package project
 
 import com.google.gson.Gson
-import junit.framework.Assert.assertEquals
+import junit.framework.TestCase.assertEquals
 import org.junit.Test
 
-
 /**
- * Generic Project tests
+ * Generic project tests
  */
-class ProjectSetupTests() {
+class ProjectSetupTests {
+
+    data class Person(
+        val id: Int,
+        val name: String
+    )
 
     /**
      * Test a generic gson parse to ensure gson library works from command line
      */
     @Test
-    fun test_GsonParse() {
-        data class Person(
-            val id: Int,
-            val name: String
-        )
-
+    fun test_GsonLibrary() {
         val json  = """
             {
                 id: 1,
