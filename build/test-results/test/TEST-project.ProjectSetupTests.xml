@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="project.ProjectSetupTests" tests="2" skipped="0" failures="0" errors="0" timestamp="2019-12-13T20:45:28" hostname="mabon-pc" time="0.057">
-  <properties/>
-  <testcase name="test_readResourceFile" classname="project.ProjectSetupTests" time="0.008"/>
-  <testcase name="test_GsonParse" classname="project.ProjectSetupTests" time="0.049"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
