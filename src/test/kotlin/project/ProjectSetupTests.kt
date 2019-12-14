@@ -1,8 +1,11 @@
 package project
 
 import com.google.gson.Gson
+import com.google.gson.GsonBuilder
+import dataModels.Mixtape
 import junit.framework.TestCase.assertEquals
 import org.junit.Test
+import service.MixtapeSerializer
 
 /**
  * Generic project tests
