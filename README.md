@@ -2,7 +2,7 @@
 # playlistBuddy
 An interview demo project by Jason Jerome
 
-## Setup
+## Setup Project
 
 ### IntelliJ
 
@@ -21,3 +21,49 @@ Refer to this document: https://kotlinlang.org/docs/tutorials/command-line.html
 Dependencies: kotlin compiler
 
 1. From project root: `kotlinc . -include-runtime -d playlistBuddy.jar`
+
+
+## Changes file format
+
+* The changes file should be in validate json format
+* To keep it simple, actions are contained to objects
+
+Sample file
+```json
+{
+  "playlist_add_songs" : [
+    {
+      "id": 1,
+      "songs": [1]
+    }
+  ],
+  "playlist_new" : [
+    {
+      "user_id": 2,
+      "songs": [1,8]
+    }
+  ],
+  "playlist_delete" : [
+    2, 3
+  ]
+}
+```
+
+**add songs to playlist**
+construct an object with:
+1. The id of the playlist
+2. A list of songs
+
+* Only songs that exist will be added
+* If a song does not exist, it will be skipped
+
+**add a new playlist**
+construct an object with:
+1. The user_id to assign the playlist
+2. A list of songs
+
+* User must exist, otherwise playlist will not be added
+* If any song does not exist, the entire playlist will not be added
+
+**delete a playlist**
+construct an list of ids to remove

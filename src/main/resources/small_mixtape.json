@@ -1,0 +1,40 @@
+{
+  "users" : [
+    {
+      "id" : "2",
+      "name" : "Bob Denver"
+    }
+  ],
+  "playlists" : [
+    {
+      "id" : "1",
+      "user_id" : "2",
+      "song_ids" : [
+        "8",
+        "32"
+      ]
+    },
+    {
+      "id": "2",
+      "user_id": "2",
+      "song_ids": ["1"]
+    }
+  ],
+  "songs": [
+    {
+      "id" : "1",
+      "artist": "The Magnetic Fields",
+      "title": "The Book of Love"
+    },
+    {
+      "id" : "8",
+      "artist": "Gorillaz",
+      "title": "Stylo"
+    },
+    {
+      "id" : "32",
+      "artist": "Little Simz",
+      "title": "Boss"
+    }
+  ]
+}
