@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class Playlist(
     val id: Int,
     @SerializedName("user_id")
-    val userId: Int,
+    var userId: Int,
     @SerializedName("song_ids")
-    val songIds: List<Int>
+    var songIds: MutableList<Int>
 )
