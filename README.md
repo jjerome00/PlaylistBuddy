@@ -67,3 +67,6 @@ construct an object with:
 
 **delete a playlist**
 construct an list of ids to remove
+
+## Notes
+* Error handling is a little sloppy, but I felt showing results looked better
