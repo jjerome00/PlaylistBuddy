@@ -4,28 +4,22 @@ import changeModels.PlaylistAddSongs
 import changeModels.PlaylistNew
 
 
-data class ProcessResult(
-    val success: Boolean,
-    val message: String
-
-)
-
 data class Mixtape(
     var users: MutableList<User>?,
     var playlists: MutableList<Playlist>?,
     var songs: MutableList<Song>?
 ) {
-    fun userExists(userId : Int) : Boolean {
+    private fun userExists(userId : Int) : Boolean {
         val user = this.users?.find { it.id == userId }
         return user != null
     }
 
-    fun songExists(songId: Int) : Boolean {
+    private fun songExists(songId: Int) : Boolean {
         val song = this.songs?.find { it.id == songId }
         return song != null
     }
 
-    fun allSongsExist(songs: List<Int>) : Boolean {
+    private fun allSongsExist(songs: List<Int>) : Boolean {
         songs.forEach { song ->
             if (!songExists(song)) {
                 return false
@@ -44,7 +38,7 @@ data class Mixtape(
      * successHeader: list of successful changes
      * failHeader: list of failed changes
      */
-    fun buildResultMessage(successList: String, failList: String, successHeader: String, failHeader: String) : String {
+    private fun buildResultMessage(successList: String, failList: String, successHeader: String, failHeader: String) : String {
         var finalMessage = ""
         var successMessage = ""
         var failMessage = ""
@@ -63,6 +57,10 @@ data class Mixtape(
         return finalMessage
     }
 
+    /**
+     * Delete playlists given in the list
+     * Returns a user-friendly result string
+     */
     fun deletePlaylists(deleteList: List<Int>) : String {
         var successList = ""
         var failList = ""
@@ -86,6 +84,14 @@ data class Mixtape(
         return buildResultMessage(successList, failList, "Playlists removed", "Playlists skipped")
     }
 
+    /**
+     * Add playlists given in the list
+     *
+     * Note: If even one song is missing, the playlist will not be added
+     * (I did this because I wanted to handle it differently than adding a song)
+     *
+     * Returns a user-friendly result string for display
+     */
     fun addPlaylists(newPlaylists: List<PlaylistNew>) : String {
         var successList = ""
         var failList = ""
@@ -115,6 +121,11 @@ data class Mixtape(
         return buildResultMessage(successList, failList, "Playlists added (IDs)", "Playlists not added for user(s)")
     }
 
+    /**
+     * Add a list of songs to a given playlist
+     * If a song does not exist, it will not be added to the playlist (the others will)
+     * Returns a user-friendly result string for display
+     */
     fun addSongsToPlaylists(playlistAddSongs: List<PlaylistAddSongs>) : String {
         var successList = ""
         var failList = ""

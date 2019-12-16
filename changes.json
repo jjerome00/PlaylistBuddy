@@ -1,0 +1,17 @@
+{
+  "playlist_add_songs" : [
+    {
+      "id": 1,
+      "songs": [1]
+    }
+  ],
+  "playlist_new" : [
+    {
+      "user_id": 2,
+      "songs": [1,8]
+    }
+  ],
+  "playlist_delete" : [
+    2, 3
+  ]
+}

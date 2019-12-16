@@ -21,12 +21,7 @@ fun main(args: Array<String>) {
     println("HI! Working!\n")
 
     if (args.size < 3) {
-        println("Usage: \$ application-name <input-file>.json <changes-file>.json <output-file>.json")
-        println("")
-        println("Example: ./playlistBuddy mixtape.json changes.json output.json")
-        println("")
-        println("Have fun!")
-        println("")
+        displayHeader()
         return
     }
 
@@ -56,7 +51,7 @@ fun main(args: Array<String>) {
     val mixtape : Mixtape?
     val changes : ChangeMixtape?
 
-    // Create models
+    // Create model for mixtape
     try {
         mixtape = Gson().fromJson(mixtapeResult.result, Mixtape::class.java)
     } catch (e: Exception) {
@@ -64,6 +59,7 @@ fun main(args: Array<String>) {
         return
     }
 
+    // Create model for changes
     try {
         changes = Gson().fromJson(changeResult.result, ChangeMixtape::class.java)
     } catch (e: Exception) {
@@ -71,6 +67,7 @@ fun main(args: Array<String>) {
         return
     }
 
+    //Modify mixtape model
     changes.playlist_delete?.let {
         val result = mixtape.deletePlaylists(it)
         println(result)
@@ -90,12 +87,25 @@ fun main(args: Array<String>) {
     val gson = GsonBuilder().registerTypeAdapter(Mixtape::class.java, MixtapeSerializer()).create()
     val serializedResult = gson.toJson(mixtape)
 
-    val outputFile = File(outputFileName)
-    outputFile.writeText(serializedResult)
+    try {
+        val outputFile = File(outputFileName)
+        outputFile.writeText(serializedResult)
+    } catch (e: Exception) {
+        println("Problem with output file: ${e.localizedMessage}")
+    }
+
+    println("\nFINISHED! Goodbye!\n")
 }
 
 
-
+fun displayHeader() {
+    println("Usage: \$ ./playlistBuddy <input-file>.json <changes-file>.json <output-file>.json")
+    println("")
+    println("Example: ./playlistBuddy mixtape.json changes.json output.json")
+    println("")
+    println("Have fun!")
+    println("")
+}
 
 fun readFile(fileName: String) : FileReadResult {
     val file = File(fileName)
