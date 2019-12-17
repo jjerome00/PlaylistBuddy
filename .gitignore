@@ -1,0 +1,10 @@
+
+# Grade files
+build/
+.gradle/
+
+# Generated files
+out/
+
+# Other
+.DS_Store
