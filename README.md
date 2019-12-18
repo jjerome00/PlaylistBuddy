@@ -60,13 +60,13 @@ Project setup is already done. These steps are for reference.
     * to: `<project>\src\main\resources`
 3. After the Artifact is displayed, check the box for `Include in project build`
 
-**Build**
+**Build**   
 1. Choose: Build > Build Artifacts
 2. Choose `Build` from menu
 3. Jar will be built to: `<project root>/out/artifacts/playlistBuddy_jar/playlistBuddy.jar`
 4. copy jar to project root: `cp ./out/artifacts/playlistBuddy_jar/playlistBuddy.jar .`
 
-**Run**
+**Run**   
 From project root:   
 `java -jar playlistBuddy.jar mixtape.json changes.json output.json`
 
