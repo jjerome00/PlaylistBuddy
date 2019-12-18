@@ -1,6 +1,11 @@
 
 # playlistBuddy
-An interview demo project by Jason Jerome
+A demo project for using Kotlin on the command line. 
+
+The application accepts 3 arguments:
+1. A `mixtape` file, which is a json representation of a mixtape with artists, playlists, and songs
+2. A "changes" file, which is a json representation of changes you want to make to the `mixtape`
+3. The name of output file with the results
 
 ## Usage
 
